@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package snake;
+package snakeworld;
 
 /**
  *
  * @author Connor Coale User AC
  */
-public class Snake {
+public class SnakeMain {
 
     /**
      * @param args the command line arguments
