@@ -5,17 +5,19 @@
  */
 package snakeworld;
 
+import java.awt.Color;
+
 /**
  *
  * @author Connor Coale User AC
  */
-public class SnakeMain {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
+public class SnakeBlock extends Block{
+    
+    
+    
+    public SnakeBlock(int r, int c){
+        location = new Location(r, c);
+        color = Color.BLUE;
     }
     
 }

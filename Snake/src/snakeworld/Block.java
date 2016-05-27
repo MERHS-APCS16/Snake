@@ -3,26 +3,23 @@
  * and open the template in the editor.
  */
 package snakeworld;
-
+import java.awt.Color;
 /**
  *
  * @author shawa1
  */
 public class Block {
-
-    int r;
-    int c;
+    Color color;
+    Location location;
     boolean b;
 
     public Block() {
-        r = 0;
-        c = 0;
+        location = new Location();
         b = true;
     }
 
-    public Block(int newR, int newC) {
-        r = newR;
-        c = newC;
+    public Block(int r, int c) {
+        location = new Location(r, c);
         b = true;
     }
 
@@ -35,15 +32,14 @@ public class Block {
     }
 
     public int getR() {
-        return r;
+        return location.getR();
     }
 
     public int getC() {
-        return c;
+        return location.getC();
     }
 
     public void moveBlock(int newR, int newC) {
-        r = newR;
-        c = newC;
+        location.setNewLocation(newR, newC);
     }
 }

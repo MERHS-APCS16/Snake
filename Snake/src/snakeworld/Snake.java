@@ -50,11 +50,16 @@ public class Snake {
         else if(direction == 4){
             snakeList.get(getTailBlock()).moveBlock((snakeList.get(getHeadBlock()).getR()), ((snakeList.get(getHeadBlock()).getC()) - 1));
         }
+        
+        snakeList.get(getTailBlock()).makeOld();
+        snakeList.set(0,snakeList.get(getTailBlock()));
+        snakeList.remove(getTailBlock());
+
     }
     
     public void setDirection (int dir){
         //sets variable direction to a new direction between 1 and 4
-        //direction can not be the oposite of the current direction
+        // direction can not be the oposite of the current direction
         if((Math.abs(direction - dir)) == 2){
             // direction is oposite
             //no change in direction occures;
@@ -94,21 +99,21 @@ public class Snake {
         
         for (int i = 0; i < snakeList.size(); i++){
             for (int z = 0; z < snakeList.size(); z++)
-                if (i != z){
+                if (i != z && !(snakeList.get(i).isNew()) && !(snakeList.get(z).isNew())){
                     if(snakeList.get(i).getR() == snakeList.get(z).getR() && snakeList.get(i).getC() == snakeList.get(z).getC()){
-                        hit = false;
+                        hit = true;
                     }
                 }
         }
         return hit;
     }
     
-    //Static Methods
-    private static int getHeadBlock (){
-        return 1;
+    //Private Methods
+    private int getHeadBlock (){
+        return 0;
     }
     
-    private static int getTailBlock (){
-        return 1;
+    private int getTailBlock (){
+        return snakeList.size();
     }
 }
