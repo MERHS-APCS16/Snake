@@ -11,24 +11,13 @@ import java.awt.Color;
 public class Block {
     Color color;
     Location location;
-    boolean b;
 
     public Block() {
         location = new Location();
-        b = true;
     }
 
     public Block(int r, int c) {
         location = new Location(r, c);
-        b = true;
-    }
-
-    public boolean isNew() {
-        return b;
-    }
-
-    public void makeOld() {
-        b = false;
     }
 
     public int getR() {
