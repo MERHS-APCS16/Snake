@@ -14,24 +14,32 @@ import java.util.ArrayList;
 
 public class Snake {
     //Instance variables
-    private ArrayList<Block> snakeList;
+    private ArrayList<SnakeBlock> snakeList;
     private int direction;
-    private boolean hit;
-
+    private SnakeWorld world;
     // Default constructor
     public Snake(){
-    snakeList = new ArrayList <Block>();
+    snakeList = new ArrayList <SnakeBlock>();
     direction = 2;
-    hit = false;
     }
     
     // Parameter constructor
-    public Snake(ArrayList <Block> newList, int dir){
+
+    /**
+     *
+     * @param newList
+     * @param dir
+     */
+    public Snake(ArrayList <SnakeBlock> newList, int dir, SnakeWorld world){
         snakeList = newList;
         direction = dir;
-        hit = false;
+        this.world = world;
     }
     
+    //returns true if the new direction is opposite to the snake's current direction
+    private boolean isOpposite(int newDirection){
+        return Math.abs(direction - newDirection) == 2;
+    }
     //Public Methods
     public void moveSnake (){
     //moves the tail block in front of the head block using direction as a guide
@@ -51,7 +59,7 @@ public class Snake {
             snakeList.get(getTailBlock()).moveBlock((snakeList.get(getHeadBlock()).getR()), ((snakeList.get(getHeadBlock()).getC()) - 1));
         }
         
-        snakeList.get(getTailBlock()).makeOld();
+        //snakeList.get(getTailBlock()).makeOld();
         snakeList.set(0,snakeList.get(getTailBlock()));
         snakeList.remove(getTailBlock());
 
@@ -64,17 +72,7 @@ public class Snake {
             // direction is oposite
             //no change in direction occures;
         }
-
-        else if (dir > 4){
-            //sets numbers above 4 to 4 to prevent errors
-            direction = 4;
-        }
         
-        else if(dir < 1){
-            //sets number bellow 1 to 1 to prevent errors
-            direction = 1;
-        }
-            
         else{
             //dir fits all parameters and direction is set to dir
             direction = dir;
@@ -92,7 +90,7 @@ public class Snake {
         //returns the arraylist of blocks
         return snakeList;
     }
-    
+    /*
     public boolean isHit(){
         //if two blocks share the same location return true
         //if snake has not hit it's self return false
@@ -107,7 +105,7 @@ public class Snake {
         }
         return hit;
     }
-    
+    */
     //Private Methods
     private int getHeadBlock (){
         return 0;
