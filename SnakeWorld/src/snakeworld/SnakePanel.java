@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import snakeworld.SnakeWorld;
 
 /**
  *
@@ -37,14 +38,24 @@ public class SnakePanel extends JPanel implements KeyListener {
     }
    
     public void KeyPressed(KeyEvent e){
-          if (e.getKeyCode() == (KeyEvent.VK_S) && paddle.getY() <= 600 - paddle.getHeight()) {
-            int y1 = snakeworld.getY();
-            paddle.setY(y1 + speed1);
+          if (e.getKeyCode() == (KeyEvent.VK_S) ) {
+            
+            sw.getSnake().setDirection(3);
             //System.out.println("Down arrow pressed") ;
         }
-        if (e.getKeyCode() == (KeyEvent.VK_W) && paddle.getY() >= 0) {
-            int y1 = paddle.getY();
-            paddle.setY(y1 - speed1);
+        if (e.getKeyCode() == (KeyEvent.VK_W) ) {
+           
+            sw.getSnake().setDirection(1);
+            //System.out.println("Down arrow pressed") ;
+        }
+          if (e.getKeyCode() == (KeyEvent.VK_D) ) {
+           
+            sw.getSnake().setDirection(2);
+            //System.out.println("Down arrow pressed") ;
+        }
+        if (e.getKeyCode() == (KeyEvent.VK_A) ) {
+            
+            sw.getSnake().setDirection(4);
             //System.out.println("Down arrow pressed") ;
         }
         repaint();
