@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package snakeworld;
+package snakegame;
 import java.awt.Color;
 /**
  *
@@ -15,7 +15,9 @@ public class Block {
     public Block() {
         location = new Location();
     }
-
+    public Block(Location loc){
+        location = loc;
+    }
     public Block(int r, int c) {
         location = new Location(r, c);
     }
@@ -26,6 +28,10 @@ public class Block {
 
     public int getC() {
         return location.getC();
+    }
+    
+    public Location getLocation(){
+        return location;
     }
     
     //moves the block to a diferent location on the grid given a row and column value. 

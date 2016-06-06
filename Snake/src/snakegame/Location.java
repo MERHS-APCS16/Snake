@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package snakeworld;
+package snakegame;
 
 /**
  *
@@ -49,8 +49,10 @@ public class Location {
         this.c = l.getC();
     }
     public boolean isEqualTo(Location otherLocation) {
-        if (otherLocation.getR() == this.r && otherLocation.getC() == this.c) {
-            return true;
+        if (otherLocation.getR() == this.r) {
+            if (otherLocation.getC() == this.c) {
+                return true;
+            }
         }
 
         return false;

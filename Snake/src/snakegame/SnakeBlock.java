@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package snakeworld;
+package snakegame;
 
 import java.awt.Color;
 
@@ -19,5 +19,13 @@ public class SnakeBlock extends Block{
         location = new Location(r, c);
         color = Color.BLUE;
     }
+    public SnakeBlock(Location loc){
+        location = loc;
+        color = Color.BLUE;
+    }
+    public SnakeBlock(SnakeBlock s){
+        location = s.getLocation();
+        color = Color.BLUE;
+}
     
 }
